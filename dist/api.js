@@ -36,6 +36,6 @@ async function fetchWeather(city) {
         }
     };
 }
-// console.log(await fetchWeather("addis abeba"))
+console.log(await fetchWeather("addis abeba"));
 export default fetchWeather;
 //# sourceMappingURL=api.js.map

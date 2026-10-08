@@ -69,6 +69,6 @@ async function fetchWeather(city:string): Promise<Forecast>{
 }
 
 
-// console.log(await fetchWeather("addis abeba"))
+console.log(await fetchWeather("addis abeba"))
 
 export default fetchWeather
