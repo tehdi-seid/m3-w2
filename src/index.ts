@@ -8,7 +8,7 @@ console.log(await fetchWeather("addis abeba"))
 const input_acceptor = document.getElementById("input-country") as HTMLInputElement;
 const get_weather_btn = document.getElementById("get-weather-btn") as HTMLButtonElement;
 const main_weather_wraper = document.querySelector(".wrapper") as HTMLDivElement;
-const future_forcast_wraper = document.querySelector(".future-forecast") as HTMLDivElement;
+const future_forcast_wraper = document.querySelector<HTMLDivElement>(".future-forecast");
 
 
 
@@ -148,7 +148,7 @@ function futureForecast(weatherInfo: Forecast) {
     });
   });
 
-  future_forcast_wraper.innerHTML = future_html(future_condition);
+  future_forcast_wraper!.innerHTML = future_html(future_condition);
 
   console.log(future_condition);
 }
