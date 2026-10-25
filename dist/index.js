@@ -54,32 +54,32 @@ export function getWeatherDescription(code) {
             condition: "Cloudy",
             icon: "☁️",
         };
-    if (code && ([45, 48].includes(code)))
+    if (code && [45, 48].includes(code))
         return {
             condition: "Foggy",
             icon: "🌫️",
         };
-    if (code && ([51, 53, 55].includes(code)))
+    if (code && [51, 53, 55].includes(code))
         return {
             condition: "Drizzle",
             icon: "💦",
         };
-    if (code && ([61, 63, 65].includes(code)))
+    if (code && [61, 63, 65].includes(code))
         return {
             condition: "Rainy",
             icon: "🌧️",
         };
-    if (code && ([71, 73, 75].includes(code)))
+    if (code && [71, 73, 75].includes(code))
         return {
             condition: "Snowy",
             icon: "❄️",
         };
-    if (code && ([80, 81, 82].includes(code)))
+    if (code && [80, 81, 82].includes(code))
         return {
             condition: "Rain showers",
             icon: "🌦️",
         };
-    if (code && ([95, 96, 99].includes(code)))
+    if (code && [95, 96, 99].includes(code))
         return {
             condition: "Thunderstorm",
             icon: "⛈️",

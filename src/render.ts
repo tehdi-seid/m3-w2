@@ -1,9 +1,12 @@
 import type { Forecast } from "./api.js";
-import { getWeatherDescription, date_forecast_seter, type futureForecast } from "./index.js";
+import {
+  getWeatherDescription,
+  date_forecast_seter,
+  type futureForecast,
+} from "./index.js";
 
-const wraper = document.querySelector(".forecast-wraper")
+const wraper = document.querySelector(".forecast-wraper");
 export function generateHTML(weatherInfo: Forecast) {
-  
   const weather_desc = getWeatherDescription(weatherInfo.current.weather_code);
   const currentHTML = `
         <div class="wrapper">
@@ -43,9 +46,8 @@ export function generateHTML(weatherInfo: Forecast) {
   document.querySelector(".wrapper")!.innerHTML = currentHTML;
 }
 
-
 export function future_html(future_data: futureForecast[]) {
-wraper!.classList.add("forecast-wraper-display");
+  wraper!.classList.add("forecast-wraper-display");
   document.querySelector(".main-body")!.classList.add("body");
   let html = "";
   future_data.forEach((element) => {

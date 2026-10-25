@@ -1,16 +1,19 @@
 import fetchWeather, { type Forecast } from "./api.js";
 import { future_html, generateHTML } from "./render.js";
 
+console.log(await fetchWeather("addis abeba"));
 
-console.log(await fetchWeather("addis abeba"))
-
-
-const input_acceptor = document.getElementById("input-country") as HTMLInputElement;
-const get_weather_btn = document.getElementById("get-weather-btn") as HTMLButtonElement;
-const main_weather_wraper = document.querySelector(".wrapper") as HTMLDivElement;
-const future_forcast_wraper = document.querySelector<HTMLDivElement>(".future-forecast");
-
-
+const input_acceptor = document.getElementById(
+  "input-country",
+) as HTMLInputElement;
+const get_weather_btn = document.getElementById(
+  "get-weather-btn",
+) as HTMLButtonElement;
+const main_weather_wraper = document.querySelector(
+  ".wrapper",
+) as HTMLDivElement;
+const future_forcast_wraper =
+  document.querySelector<HTMLDivElement>(".future-forecast");
 
 get_weather_btn?.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -36,14 +39,12 @@ function error_mesage(message: unknown) {
   `;
 }
 
-
 function reloading() {
   main_weather_wraper.innerHTML = `
   
   <p class="loading-page">loading please wait...</p>
 
   `;
-
 }
 
 export function getWeatherDescription(code: number) {
@@ -68,37 +69,37 @@ export function getWeatherDescription(code: number) {
       icon: "☁️",
     };
 
-  if (code &&  ([45, 48].includes(code)))
+  if (code && [45, 48].includes(code))
     return {
       condition: "Foggy",
       icon: "🌫️",
     };
 
-  if (code && ([51, 53, 55].includes(code)))
+  if (code && [51, 53, 55].includes(code))
     return {
       condition: "Drizzle",
       icon: "💦",
     };
 
-  if (code && ([61, 63, 65].includes(code)))
+  if (code && [61, 63, 65].includes(code))
     return {
       condition: "Rainy",
       icon: "🌧️",
     };
 
-  if (code && ([71, 73, 75].includes(code)))
+  if (code && [71, 73, 75].includes(code))
     return {
       condition: "Snowy",
       icon: "❄️",
     };
 
-  if (code && ([80, 81, 82].includes(code)))
+  if (code && [80, 81, 82].includes(code))
     return {
       condition: "Rain showers",
       icon: "🌦️",
     };
 
-  if (code && ([95, 96, 99].includes(code)))
+  if (code && [95, 96, 99].includes(code))
     return {
       condition: "Thunderstorm",
       icon: "⛈️",
@@ -113,19 +114,19 @@ export function getWeatherDescription(code: number) {
 export function date_forecast_seter(weatherInfo: Forecast) {
   const date = weatherInfo.current.time;
   const local_time = new Date(date);
-  console.log(local_time)
+  console.log(local_time);
   return day_changer(local_time);
 }
 
 // future_forecast_seter();
 
 export interface futureForecast {
-  day:string,
+  day: string;
   icon: {
-    condition: string,
-    icon: string
-  },
-  temp: string
+    condition: string;
+    icon: string;
+  };
+  temp: string;
 }
 
 function futureForecast(weatherInfo: Forecast) {
@@ -137,7 +138,7 @@ function futureForecast(weatherInfo: Forecast) {
   weather_code.forEach((_, index) => {
     const min_temp = min_weather[index];
     const max_temp = max_weather[index];
-    
+
     const day = day_changer(new Date(weather_time[index]));
     const icon = getWeatherDescription(weather_code[index]);
 

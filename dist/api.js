@@ -19,7 +19,10 @@ async function fetchWeather(city) {
     const res = await fetch(forecastUrl);
     const data = await res.json();
     console.log(data);
-    return { name, country, current: {
+    return {
+        name,
+        country,
+        current: {
             temperature_2m: data.current.temperature_2m,
             weather_code: data.current.weather_code,
             rain: data.current.rain,
@@ -32,8 +35,8 @@ async function fetchWeather(city) {
             temperature_2m_max: data.daily.temperature_2m_max,
             temperature_2m_min: data.daily.temperature_2m_min,
             weather_code: data.daily.weather_code,
-            time: data.daily.time
-        }
+            time: data.daily.time,
+        },
     };
 }
 console.log(await fetchWeather("addis abeba"));

@@ -1,4 +1,4 @@
-import { getWeatherDescription, date_forecast_seter } from "./index.js";
+import { getWeatherDescription, date_forecast_seter, } from "./index.js";
 const wraper = document.querySelector(".forecast-wraper");
 export function generateHTML(weatherInfo) {
     const weather_desc = getWeatherDescription(weatherInfo.current.weather_code);
